@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <!-- Remove favicon error: -->
+  <link rel="shortcut icon" href="#">
   <link rel="stylesheet"
         href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
   <style>
-
     img {
       max-width: 70%;
     }
-
     .image-center {
       display: block;
       margin: 10px auto;
     }
-
   </style>
 </head>
 
@@ -75,6 +74,31 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
   // Add your code here!
+  $(function() {
+    console.log("Let's get ready to party with jQuery")
+    $("article img").addClass('image-center');
+    $("article p").last().remove();
+    const randomNum = Math.floor(Math.random() * 101);
+    $("#title").css("font-size", randomNum);
+    $("ol").append("<li>Puppies are cute</li>")
+    $("aside").children().remove();
+    $("aside").append("Sorry for the existence of the list.")
+    
+    $(".form-control").on("change", function() {
+      const red = $(".form-control").eq(0).val();
+      // console.log("red: " + red);
+      const blue = $(".form-control").eq(1).val();
+      // console.log("blue: " + blue);
+      const green = $(".form-control").eq(2).val();
+      // console.log("green: " + green);
+      $("body").css("background-color", `rgb(${red}, ${blue}, ${green})`);
+    })
+    
+    $("img").on("click", function(evt) {
+      // $("img").remove();
+      $(evt.target).remove();
+    })
+  })
 </script>
 </body>
 
